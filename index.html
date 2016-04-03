@@ -51,7 +51,7 @@
                   var arr = crimeCounts[i];
                   if (d.PdDistrict == arr[0]) {
                     console.log("match");
-                    crimeCounts[i] = [arr[0], arr[1] + prostitution, [arr[2] + vehicleTheft]];
+                    crimeCounts[i] = [arr[0], +arr[1] + prostitution, +[arr[2] + vehicleTheft]];
                     found = true;
                     break;
                   }
