@@ -48,26 +48,26 @@
               
               if (d.Date == 2013) {
                 for (i = 0; i < crimeCounts2013.length; i++) { 
-                  var arr = crimeCounts2013[i];
-                  if (d.PdDistrict == arr[0]) {
-                    crimeCounts2013[i] = [arr[0], +arr[1] + prostitution, +[arr[2] + vehicleTheft]];
+                  if (d.PdDistrict == crimeCounts2013[i].PdDistrict) {
+                    crimeCounts2013[i].Prostitution = crimeCounts2013[i].Prostitution + prostitution;
+                    crimeCounts2013[i].VehicleTheft = crimeCounts2013[i].VehicleTheft + vehicleTheft;
                     found = true;
                     break;
                   }
                 }
-                if (found == false) { crimeCounts2013.push( [d.PdDistrict, prostitution, vehicleTheft] ); }
+                if (found == false) { crimeCounts2015.push({ "PdDistrict": d.PdDistrict, "Prostitution": prostitution, "VehicleTheft": vehicleTheft}); }
               }
 
               if (d.Date == 2015) {
                 for (i = 0; i < crimeCounts2015.length; i++) { 
-                  var arr = crimeCounts2015[i];
-                  if (d.PdDistrict == arr[0]) {
-                    crimeCounts2015[i] = [arr[0], +arr[1] + prostitution, +[arr[2] + vehicleTheft]];
+                  if (d.PdDistrict == crimeCounts2015[i].PdDistrict) {
+                    crimeCounts2015[i].Prostitution = crimeCounts2015[i].Prostitution + prostitution;
+                    crimeCounts2015[i].VehicleTheft = crimeCounts2015[i].VehicleTheft + vehicleTheft;
                     found = true;
                     break;
                   }
                 }
-                if (found == false) { crimeCounts2015.push( [d.PdDistrict, prostitution, vehicleTheft] ); }
+                if (found == false) { crimeCounts2015.push({ "PdDistrict": d.PdDistrict, "Prostitution": prostitution, "VehicleTheft": vehicleTheft}); }
               }
             });
 
@@ -96,45 +96,25 @@
           scaleHeight.range([0, h]);
 
 
-          var svg = d3.select("body").append("png");
-          svg.attr("width", w)
-             .attr("height", h);
-
-          var circles = svg.selectAll("circle")
-            .data(crimeCounts2013)
-            .enter()
-            .append("circle");
-
-          circles.attr("cx", function(d, i) {
-              return scaleWidth( crimeCounts2013[i][1] );
-            })
-            .attr("cy", function(d, i) {
-              return scaleHeight( crimeCounts2013[i][2] );
-            })
-            .attr("r", function(d, i) {
-              return scaleRadius( crimeCounts2013[i][1] + crimeCounts[i][2] );
-            });
-
-
-var jsonCircles = [
- { "x_axis": 30, "y_axis": 30, "radius": 20, "color" : "green" },
-   { "x_axis": 70, "y_axis": 70, "radius": 20, "color" : "purple"},
-   { "x_axis": 110, "y_axis": 100, "radius": 20, "color" : "red"}];
+          var jsonCircles = [
+            { "x_axis": 30, "y_axis": 30, "radius": 20, "color" : "green" },
+            { "x_axis": 70, "y_axis": 70, "radius": 20, "color" : "purple"},
+            { "x_axis": 110, "y_axis": 100, "radius": 20, "color" : "red"}];
  
- var svgContainer = d3.select("body").append("svg")
-                                     .attr("width", 200)
-                                     .attr("height", 200);
+          var svgContainer = d3.select("body").append("svg")
+                                     .attr("width", w)
+                                     .attr("height", h);
  
-var circles = svgContainer.selectAll("circle")
+          var circles = svgContainer.selectAll("circle")
                           .data(jsonCircles)
                           .enter()
                           .append("circle");
 
-var circleAttributes = circles
-                       .attr("cx", function (d) { return d.x_axis; })
-                       .attr("cy", function (d) { return d.y_axis; })
-                       .attr("r", function (d) { return d.radius; })
-                       .style("fill", function(d) { return d.color; });
+          var circleAttributes = circles
+            .attr("cx", function (d) { return d.x_axis; })
+            .attr("cy", function (d) { return d.y_axis; })
+            .attr("r", function (d) { return d.radius; })
+            .style("fill", function(d) { return d.color; });
         </script>
     </section>
 
