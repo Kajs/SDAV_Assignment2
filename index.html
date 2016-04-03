@@ -106,7 +106,7 @@
 
 
             function update() {
-              if(svgContainer != null) { svg.selectAll("*").remove(); }
+              d3.selectAll("svg > *").remove();
               if (year == 2015) {
                 year = 2013;
                 crimeData = crimeCounts2013;
