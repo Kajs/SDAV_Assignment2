@@ -49,14 +49,14 @@
                 if (d.category == "VEHICLE THEFT") { vehicleTheft = 1; }
               
                 for (i = 0; i < crimeCounts.length; i++) { 
-                  console.log(crimeCounts[i]);
-                  if (d.district == district) {
-                    
+                  var arr = crimeCounts[i];
+                  if (d.district == arr[0]) {
+                    crimecounts[i] = [arr[0], arr[1] + prostitution, [arr[2] + vehicleTheft]];
                     found = true;
                     break;
                   }
                 }
-                if (found == false) { crimeCounts.push( { "district" = d.district, "prostitutions" = prostitution, "vehicleThefts" = vehicleTheft }; }
+                if (found == false) { crimeCounts.push( { [d.district, prostitution, vehicleTheft]; }
               }
             });
 
