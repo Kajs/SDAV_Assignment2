@@ -218,23 +218,9 @@
               var twentytwoTwentythree = 0;
               var twentythreeTwentyfour = 0;
 
-              if(d.Category == "PROSTITUTION") { prostitution = 1; }
-              var vehicleTheft = 0;
-              if (d.Category == "VEHICLE THEFT") { vehicleTheft = 1; }
-              
-              if (d.Time == 2013) {
-                for (i = 0; i < crimeCounts2013.length; i++) { 
-                  if (d.PdDistrict == crimeCounts2013[i].PdDistrict) {
-                    crimeCounts2013[i].Prostitution = crimeCounts2013[i].Prostitution + prostitution;
-                    crimeCounts2013[i].VehicleTheft = crimeCounts2013[i].VehicleTheft + vehicleTheft;
-                    found = true;
-                    break;
-                  }
-                }
-                if (found == false) { crimeCounts2013.push({ "PdDistrict": d.PdDistrict, "Prostitution": prostitution, "VehicleTheft": vehicleTheft}); }
-              }
               console.log(d.Time);
             });
+          });
         </script>
       </div>
     </section>
