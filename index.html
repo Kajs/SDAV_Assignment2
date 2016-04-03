@@ -264,6 +264,14 @@
                 .attr("stroke-width", 2)
                 .attr("stroke", "black");
 
+              var headline = svgContainer2.append("text")
+                .style("font-size","34px")
+                .style("font-weight", "bold")
+                .attr("dy", ".47em") 
+                .text(function(d) { return district })
+                .attr("x", function(d) { return minX; })
+                .attr("y", function(d) { return minY*2; });
+
             }
  
             update2();
