@@ -34,7 +34,7 @@
         <script type="text/javascript">
           var dataset; //Declare global var
 
-          d3.csv("sfpd_mini.csv", function(data) {
+          d3.csv("sfpd_cropped.csv", function(data) {
             dataset = data;
             var year = "2013";
             var crimeCounts = [];
@@ -50,13 +50,12 @@
                 for (i = 0; i < crimeCounts.length; i++) { 
                   var arr = crimeCounts[i];
                   if (d.PdDistrict == arr[0]) {
-                    console.log("match");
                     crimeCounts[i] = [arr[0], +arr[1] + prostitution, +[arr[2] + vehicleTheft]];
                     found = true;
                     break;
                   }
                 }
-                if (found == false) { console.log("mismatch"); crimeCounts.push( [d.PdDistrict, prostitution, vehicleTheft] ); }
+                if (found == false) { crimeCounts.push( [d.PdDistrict, prostitution, vehicleTheft] ); }
               }
             });
 
