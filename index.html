@@ -81,19 +81,24 @@
 
             var w = 500;
             var h = 500;
+            var minR = 1;
             var maxR = 50;
+            var minX = maxR + 10;
+            var maxX = w;
+            var minY = maxR + 10;
+            var maxY = h;
 
             var scaleRadius = d3.scale.linear();
-            scaleRadius.domain([1, 2000]);
-            scaleRadius.range([0, maxR]);
+            scaleRadius.domain([0, 2000]);
+            scaleRadius.range([minR, maxR]);
 
             var scaleWidth = d3.scale.linear();
             scaleWidth.domain([0, 2000]);
-            scaleWidth.range([maxR, w]);
+            scaleWidth.range([minX, maxX]);
 
             var scaleHeight = d3.scale.linear();
             scaleHeight.domain([0, 2000]);
-            scaleHeight.range([maxR, h]);
+            scaleHeight.range([minY, maxY]);
  
             var svgContainer = d3.select("body").append("svg")
                                        .attr("width", w)
@@ -110,14 +115,15 @@
               .attr("r", function (d) { return scaleRadius(d.Prostitution + d.VehicleTheft); })
             .style("fill", function(d) { return "black"; });
             console.log(crimeCounts2013.length);
+
+            var line = svgContainer.append("line")
+              .attr("x1", minX)
+              .attr("y1", maxY)
+              .attr("x2", maxX)
+              .attr("y2", maxY)
+              .attr("stroke-width", 2)
+              .attr("stroke", "black");
           });
-
-
-
-          var jsonCircles = [
-            { "x_axis": 30, "y_axis": 30, "radius": 20, "color" : "green" },
-            { "x_axis": 70, "y_axis": 70, "radius": 20, "color" : "purple"},
-            { "x_axis": 110, "y_axis": 100, "radius": 20, "color" : "red"}];
 
         </script>
     </section>
