@@ -125,7 +125,7 @@
                                        .attr("height", h)
                                        .on('click', function(d,i) { update();  });
               d3.select("#chart").attr("align","center"); //  thanks & +1 to chaitanya89
-              $("svgContainer").css({top: 200, left: 0, position:'relative'});
+              svgContainer.css({top: 200, left: 0, position:'relative'});
 
               var circles = svgContainer.selectAll("circle")
                             .data(crimeData)
