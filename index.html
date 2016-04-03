@@ -248,7 +248,7 @@
                 .attr("y", function (d, i) { return h - scaleRectHeight(crimeData2[i]) - maxR; })
                 .style("fill", function(d) { return "blue"; });
 
-              var xBorder = svgContainer.append("line")
+              var xBorder2 = svgContainer2.append("line")
                 .attr("x1", minX)
                 .attr("y1", maxY)
                 .attr("x2", maxX)
@@ -256,7 +256,7 @@
                 .attr("stroke-width", 2)
                 .attr("stroke", "black");
 
-              var yBorder = svgContainer.append("line")
+              var yBorder2 = svgContainer2.append("line")
                 .attr("x1", minX)
                 .attr("y1", maxY)
                 .attr("x2", minX)
