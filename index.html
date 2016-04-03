@@ -60,6 +60,11 @@
             });
 
             for (i = 0; i < crimeCounts.length; i++) { console.log(crimeCounts[i]); }
+
+            var scale = d3.scale.linear();
+            scale.domain([0, 2000]);
+            scale.range([0, 500]);
+            console.log(scale(200));
           });
         </script>
     </section>
