@@ -250,7 +250,7 @@
 
               var rectangleAttributes = rectangles
                 .attr("width", function(d) { return rectWidth; })
-                .attr("height", function (d, i) { 100; })
+                .attr("height", function (d, i) { return 100; })
                 .attr("x", function (d, i) { return w/24 * i * 0.5 + minR; })
                 .attr("y", function (d, i) { return 100; })
                 .style("fill", function(d) { return "blue"; });
