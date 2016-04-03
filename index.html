@@ -40,11 +40,7 @@
             var crimeCounts = [];
 
             data.forEach(function(d) {
-              console.log("top loop");
-              console.log(d.Date);
-              console.log(year);
               if (d.Date == year) {
-                console.log("year match");
                 var found = false;
                 var prostitution = 0;
                 if(d.Category == "PROSTITUTION") { prostitution = 1; }
@@ -55,14 +51,13 @@
                   var arr = crimeCounts[i];
                   if (d.PdDistrict == arr[0]) {
                     console.log("match");
-                    crimecounts[i] = [arr[0], arr[1] + prostitution, [arr[2] + vehicleTheft]];
+                    crimeCounts[i] = [arr[0], arr[1] + prostitution, [arr[2] + vehicleTheft]];
                     found = true;
                     break;
                   }
                 }
                 if (found == false) { console.log("mismatch"); crimeCounts.push( [d.PdDistrict, prostitution, vehicleTheft] ); }
               }
-              else { console.log("wrong year"); }
             });
 
             for (i = 0; i < crimeCounts.length; i++) { console.log(crimeCounts[i]); }
