@@ -254,7 +254,7 @@
                 .attr("width", function(d) { return rectWidth; })
                 .attr("height", function (d, i) { return scaleHeight(crimeData[i]); })
                 .attr("x", function (d, i) { return w/24 * i * 0.5 + maxR; })
-                .attr("y", function (d, i) { return h - scaleHeight(crimeData[i]) + maxR; })
+                .attr("y", function (d, i) { return h - scaleHeight(crimeData[i]) - maxR; })
                 .style("fill", function(d) { return "blue"; });
 
               var xBorder = svgContainer.append("line")
