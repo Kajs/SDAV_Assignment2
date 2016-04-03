@@ -163,8 +163,8 @@
                 .style("font-weight", "bold")
                 .attr("dy", ".47em") 
                 .text(function(d) { return year })
-                .attr("x", function(d) { return 0; })
-                .attr("y", function(d) { return 0; });
+                .attr("x", function(d) { return minX; })
+                .attr("y", function(d) { return minY; });
             }
  
             update();
