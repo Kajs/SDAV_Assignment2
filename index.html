@@ -188,9 +188,9 @@
           var crimeNorthern = [];
           var crimeSouthern = [];
 
-          d3.csv("sfpd_time.csv", function(data1) {
+          d3.csv("sfpd_time.csv", function(data) {
 
-            data1.forEach(function(d) {
+            data.forEach(function(d) {
               var found = false;
               var zeroOne = 0;
               var oneTwo = 0;
