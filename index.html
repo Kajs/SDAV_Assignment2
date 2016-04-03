@@ -103,7 +103,11 @@
             var svgContainer = d3.select("body").append("svg")
                                        .attr("width", w)
                                        .attr("height", h)
-                                       .on('click', function(d,i){ alert("test");  });
+                                       .on('click', function(d,i){ test()  });
+
+            function test() {
+              alert("hi");
+            }
  
             var circles = svgContainer.selectAll("circle")
                             .data(crimeCounts2013)
