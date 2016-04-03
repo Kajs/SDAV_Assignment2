@@ -125,7 +125,7 @@
                                        .append("svg")
                                        .attr("width", w)
                                        .attr("height", h)
-                                       .on('click', function(d,i) { cheapSolutionUpdate();  });
+                                       .on('click', function(d,i) { update();  });
 
               var circles = svgContainer.selectAll("circle")
                             .data(crimeData)
@@ -207,11 +207,7 @@
           var crimeNorthern = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0];
           var crimeSouthern = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0];
 
-          var data2 = d3.csv("sfpd_time.csv");
-          test(data2);
-
-        function test(data2) {
-
+          d3.csv("sfpd_time.csv", function(data2) {
             data2.forEach(function(d) {
               var hours = +d.Time.substring(0, 2);
               var minutes = +d.Time.substring(3, 5);
@@ -259,7 +255,7 @@
                                        .append("svg")
                                        .attr("width", w)
                                        .attr("height", h)
-                                       .on('click', function(d,i) { cheapSolutionUpdate();  });
+                                       .on('click', function(d,i) { update2(); });
 
               var rectangles = svgContainer2.selectAll("rect")
                             .data(crimeData2)
@@ -313,11 +309,11 @@
                 .text(function(d) { return "Number of Crimes (all types)" })
                 .attr("x", function(d) { return -500; })
                 .attr("y", function(d) { return 30; });
-
             }
  
             update2();
-        }
+          });
+
         </script>
       </div>
     </section>
