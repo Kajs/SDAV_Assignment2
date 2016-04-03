@@ -33,11 +33,21 @@
       <h2>Assignment 2B: One scatter plot and two datasets</h2>
         <script type="text/javascript">
           var dataset; //Declare global var
+          var count = 0;
 
-          d3.csv("sfpd_cropped.csv", function(data) {
+          d3.csv("sfpd_mini.csv", function(data) {
             dataset = data;
-            console.log(data);
           });
+
+          d3.select("body").selectAll("div")
+            .data(dataset)  // <-- The answer is here!
+            .enter()
+            .append("div")
+            .attr("class", "bar")
+            .style("height", function(d) {
+            var barHeight = d * 5;
+            return barHeight + "px";
+    });
         </script>
     </section>
 
