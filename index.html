@@ -33,11 +33,11 @@
       <h2>Assignment 2B: One scatter plot and two datasets</h2>
         <script type="text/javascript">
           var dataset; //Declare global var
+          var year = "2015";
+          var crimeCounts = [];
 
           d3.csv("sfpd_cropped.csv", function(data) {
             dataset = data;
-            var year = "2013";
-            var crimeCounts = [];
 
             data.forEach(function(d) {
               if (d.Date == year) {
