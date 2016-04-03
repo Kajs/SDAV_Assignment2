@@ -168,7 +168,7 @@
                 .attr("x", function(d) { return minX; })
                 .attr("y", function(d) { return minY*2; });
 
-              var xLabel = svgContainer2.append("text")
+              var xLabel = svgContainer.append("text")
                 .style("font-size","20px")
                 .style("font-weight", "bold")
                 .attr("dy", ".47em") 
@@ -176,7 +176,7 @@
                 .attr("x", function(d) { return maxX/2; })
                 .attr("y", function(d) { return h - 35; });
 
-              var yLabel = svgContainer2.append("text")
+              var yLabel = svgContainer.append("text")
                 .style("font-size","20px")
                 .style("font-weight", "bold")
                 .attr("dy", ".47em") 
