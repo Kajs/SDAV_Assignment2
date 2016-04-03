@@ -29,9 +29,9 @@
           <rect x="60" y="5" width="80" height="80" fill="yellow" fill-opacity="0.4" stroke="gray" stroke-width="2"/>
           <rect x="80" y="0" width="80" height="80" fill="red" fill-opacity="0.2" stroke="gray" stroke-width="2"/>
         </svg>
-
+      <div>
       <h2>Assignment 2B: One scatter plot and two datasets</h2>
-        <div>
+        
         <script type="text/javascript">
           var dataset; //Declare global var
           var crimeCounts2013 = [];
@@ -124,8 +124,6 @@
                                        .attr("width", w)
                                        .attr("height", h)
                                        .on('click', function(d,i) { update();  });
-              d3.select("#chart").attr("align","center"); //  thanks & +1 to chaitanya89
-              svgContainer.css({top: 200, left: 0, position:'relative'});
 
               var circles = svgContainer.selectAll("circle")
                             .data(crimeData)
@@ -183,7 +181,7 @@
         "Why should the axes be the same?" If the axes weren't the same, it would be more difficult to compare the years.</div>
     </section>
     <section class="main-content">
-      <div style="clear:both;"><h2>Assignment 2C: One barchart and (at least) two datasets</h2></div>
+      <div><h2>Assignment 2C: One barchart and (at least) two datasets</h2></div>
     </section>
 
   
