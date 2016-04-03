@@ -205,6 +205,92 @@
             for (i = 0; i < 23; i++) {
               console.log(crimeSouthern[i]);
             }
+
+            var w = 1200;
+            var h = 700;
+            var minR = 1;
+            var maxR = 50;
+            var minX = maxR;
+            var maxX = w - maxR;
+            var minY = maxR;
+            var maxY = h - maxR;
+            var rectWidth = 10;
+
+            var scaleRadius = d3.scale.linear();
+            scaleRadius.domain([0, 4000]);
+            scaleRadius.range([minR, maxR]);
+
+            var scaleWidth = d3.scale.linear();
+            scaleWidth.domain([0, 500]);
+            scaleWidth.range([minX, maxX]);
+
+            var scaleHeight = d3.scale.linear();
+            scaleHeight.domain([0, 1400]);
+            scaleHeight.range([minY, maxY]);
+
+            var svgContainer;
+            var crimeData;
+            var district = 'NORTHERN';
+
+
+            function update() {
+              if (svgContainer != null) { svgContainer.remove(); }
+              
+              if (district == 'NORTHERN') {
+                district = 'SOUTHERN';
+                crimeData = crimeSouthern;
+              }
+              else {
+                district = 'NORTHERN';
+                crimeData = crimeNorthern;
+              }
+
+              svgContainer = d3.select("body")
+                                       .append("div")
+                                       .append("svg")
+                                       .attr("width", w)
+                                       .attr("height", h)
+                                       .on('click', function(d,i) { update();  });
+
+              var rectangles = svgContainer.selectAll("rect")
+                            .data(crimeData)
+                            .enter()
+                            .append("rect");
+
+              var rectangleAttributes = rectangles
+                .attr("width") { return rectWidth; }
+                .attr("height", function (d, i)) { return scaleHeight(crimeData[i]); }
+                .attr("x", function (d, i) { return w/24 * i; })
+                .attr("y", function (d) { return maxY; })
+                .style("fill", function(d) { return "blue"; });
+
+              var xBorder = svgContainer.append("line")
+                .attr("x1", minX)
+                .attr("y1", maxY)
+                .attr("x2", maxX)
+                .attr("y2", maxY)
+                .attr("stroke-width", 2)
+                .attr("stroke", "black");
+
+              var yBorder = svgContainer.append("line")
+                .attr("x1", minX)
+                .attr("y1", maxY)
+                .attr("x2", minX)
+                .attr("y2", minY)
+                .attr("stroke-width", 2)
+                .attr("stroke", "black");
+
+              var headline = svgContainer.append("text")
+                .style("font-size","34px")
+                .style("font-weight", "bold")
+                .attr("dy", ".47em") 
+                .text(function(d) { return year })
+                .attr("x", function(d) { return minX; })
+                .attr("y", function(d) { return minY*2; });
+            }
+ 
+            update();
+
           });
         </script>
       </div>
