@@ -181,7 +181,62 @@
         "Why should the axes be the same?" If the axes weren't the same, it would be more difficult to compare the years.</div>
     </section>
     <section class="main-content">
-      <div><h2>Assignment 2C: One barchart and (at least) two datasets</h2></div>
+      <div>
+        <h2>Assignment 2C: One barchart and (at least) two datasets</h2>
+        <script type="text/javascript">
+          var dataset; //Declare global var
+          var crimeNorthern = [];
+          var crimeSouthern = [];
+
+          d3.csv("sfpd_time.csv", function(data) {
+            dataset = data;
+
+            data.forEach(function(d) {
+              var found = false;
+              var zeroOne = 0;
+              var oneTwo = 0;
+              var twoThree = 0;
+              var threeFour = 0;
+              var fourFive = 0;
+              var fiveSix = 0;
+              var sixSeven = 0;
+              var sevenEight = 0;
+              var eightNine = 0;
+              var nineTen = 0;
+              var tenEleven = 0;
+              var elevenTwelve = 0;
+              var twelveThirteen = 0;
+              var thirteenFourteen = 0;
+              var fourteenFifteen = 0;
+              var fifteenSixteen = 0;
+              var sixteenSeventeen = 0;
+              var seventeenEighteen = 0;
+              var eighteenNineteen = 0;
+              var nineteenTwenty = 0;
+              var twentyTwentyone = 0;
+              var twentyoneTwentytwo = 0;
+              var twentytwoTwentythree = 0;
+              var twentythreeTwentyfour = 0;
+
+              if(d.Category == "PROSTITUTION") { prostitution = 1; }
+              var vehicleTheft = 0;
+              if (d.Category == "VEHICLE THEFT") { vehicleTheft = 1; }
+              
+              if (d.Time == 2013) {
+                for (i = 0; i < crimeCounts2013.length; i++) { 
+                  if (d.PdDistrict == crimeCounts2013[i].PdDistrict) {
+                    crimeCounts2013[i].Prostitution = crimeCounts2013[i].Prostitution + prostitution;
+                    crimeCounts2013[i].VehicleTheft = crimeCounts2013[i].VehicleTheft + vehicleTheft;
+                    found = true;
+                    break;
+                  }
+                }
+                if (found == false) { crimeCounts2013.push({ "PdDistrict": d.PdDistrict, "Prostitution": prostitution, "VehicleTheft": vehicleTheft}); }
+              }
+              console.log(d.Time);
+            });
+        </script>
+      </div>
     </section>
 
   
