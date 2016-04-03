@@ -33,18 +33,34 @@
       <h2>Assignment 2B: One scatter plot and two datasets</h2>
         <script type="text/javascript">
           var dataset; //Declare global var
-          var count = 0;
+          var year = "2013"
+          var crimeCounts = []
 
           d3.csv("sfpd_mini.csv", function(data) {
             dataset = data;
             console.log(dataset[0]);
 
             data.forEach(function(d) {
-              if(d.PdDistrict == 'BAYVIEW') {
-                count = count + 1; 
+              if (d.date == year) {
+                var found = false;
+                var prostitution = 0;
+                if(d.category == "PROSTITUTION") { prostitution = 1; }
+                var vehicleTheft = 0;
+                if d.category == "VEHICLE THEFT") { vehicleTheft = 1; }
+              
+                for (i = 0; i < crimeCounts.length; i++) { 
+                  (district, prostitutions, vehicleThefts) = crimeCounts[i];
+                  if (d.district == district) {
+                    crimeCounts[i] = (district, prostitutions + prostitution, vehicleThefts + vehicleTheft);
+                    found = true;
+                    break;
+                  }
+                }
+                if (found == false) { crimeCounts.push((d.district, prostitution, vehicleTheft)); }
               }
             });
-            console.log(count);
+
+            for (i = 0; i < crimeCounts.length; i++) { console.log(crimeCounts[i]); }
           });
         </script>
     </section>
