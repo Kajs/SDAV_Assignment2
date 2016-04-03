@@ -167,7 +167,6 @@
                 .text(function(d) { return year })
                 .attr("x", function(d) { return minX; })
                 .attr("y", function(d) { return minY*2; });
-            }
 
               var xLabel = svgContainer2.append("text")
                 .style("font-size","20px")
@@ -185,6 +184,7 @@
                 .text(function(d) { return "Number of Crimes (all types)" })
                 .attr("x", function(d) { return -500; })
                 .attr("y", function(d) { return 30; });
+            }
  
             update();
 
