@@ -161,6 +161,7 @@
               var headline = svgContainer.append("text")
                 .style("font-size","34px")
                 .style("font-weight", "bold")
+                .attr("dy", ".47em") 
                 .text(function(d) { return year })
                 .attr("x", function(d) { return 0; })
                 .attr("y", function(d) { return 0; });
