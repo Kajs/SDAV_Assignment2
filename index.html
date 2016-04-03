@@ -122,8 +122,8 @@
 
             var labelAttributes = labels
               .text(function(d) { return d.PdDistrict; })
-              .attr("x", function(d) { maxY - scaleHeight(d.VehicleTheft); })
-              .attr("y", function(d) { return scaleRadius(d.Prostitution + d.VehicleTheft); });
+              .attr("x", function(d) { return scaleWidth(d.Prostitution); })
+              .attr("y", function(d) { return maxY - scaleHeight(d.VehicleTheft); });
 
             var xBorder = svgContainer.append("line")
               .attr("x1", minX)
