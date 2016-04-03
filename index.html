@@ -250,9 +250,9 @@
 
               var rectangleAttributes = rectangles
                 .attr("width", function(d) { return rectWidth; })
-                .attr("height", function (d, i) { return maxY - scaleHeight(crimeData[i]); })
+                .attr("height", function (d, i) { scaleHeight(crimeData[i]); })
                 .attr("x", function (d, i) { return w/24 * i * 0.5 + minR; })
-                .attr("y", function (d) { return minR; })
+                .attr("y", function (d) { return h - scaleHeight(crimeData[i]); })
                 .style("fill", function(d) { return "blue"; });
 
               var xBorder = svgContainer.append("line")
