@@ -199,6 +199,7 @@
         Click on the image to switch (clicked image will end up at the bottom however). <br>
         "Why should the axes be the same?" If the axes weren't the same, it would be more difficult to compare the years.</div>
     </section>
+
     <section class="main-content">
       <div>
         <h2>Assignment 2C: One barchart and (at least) two datasets</h2>
@@ -206,7 +207,12 @@
           var crimeNorthern = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0];
           var crimeSouthern = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0];
 
-          d3.csv("sfpd_time.csv", function(data2) {
+          d3.csv("sfpd_time.csv", test(data2) {
+
+
+          });
+
+        function test(data2) {
 
             data2.forEach(function(d) {
               var hours = +d.Time.substring(0, 2);
@@ -313,8 +319,7 @@
             }
  
             update2();
-
-          });
+        }
         </script>
       </div>
     </section>
