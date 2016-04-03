@@ -185,9 +185,9 @@
           var crimeNorthern = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0];
           var crimeSouthern = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0];
 
-          d3.csv("sfpd_time.csv", function(data) {
+          d3.csv("sfpd_time.csv", function(data2) {
 
-            data.forEach(function(d) {
+            data2.forEach(function(d) {
               var hours = +d.Time.substring(0, 2);
               var minutes = +d.Time.substring(3, 5);
               if (d.PdDistrict == 'NORTHERN') { crimeNorthern[hours] = crimeNorthern[hours] + 1; }
