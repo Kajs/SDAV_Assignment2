@@ -194,8 +194,6 @@
               if (d.PdDistrict == 'SOUTHERN') { crimeSouthern[hours] = crimeSouthern[hours] + 1; }
             });
 
-            for (i = 0; i < 23; i++) { console.log(crimeSouthern[i]); console.log(crimeNorthern[i]) }
-
             var w = 1200;
             var h = 700;
             var minR = 1;
@@ -219,7 +217,7 @@
             var district = 'NORTHERN';
 
 
-            function update() {
+            function update2() {
               if (svgContainer2 != null) { svgContainer2.remove(); }
               
               if (district == 'NORTHERN') {
