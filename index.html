@@ -33,12 +33,10 @@
       <h2>Assignment 2B: One scatter plot and two datasets</h2>
         
         <script type="text/javascript">
-          var dataset; //Declare global var
           var crimeCounts2013 = [];
           var crimeCounts2015 = [];
 
           d3.csv("sfpd_cropped.csv", function(data) {
-            dataset = data;
 
             data.forEach(function(d) {
               var found = false;
@@ -184,7 +182,6 @@
       <div>
         <h2>Assignment 2C: One barchart and (at least) two datasets</h2>
         <script type="text/javascript">
-          var dataset; //Declare global var
           var crimeNorthern = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0];
           var crimeSouthern = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0];
 
@@ -209,52 +206,48 @@
             var maxY = h - maxR;
             var rectWidth = 10;
 
-            var scaleRadius = d3.scale.linear();
-            scaleRadius.domain([0, 4000]);
-            scaleRadius.range([minR, maxR]);
+            var scaleRectWidth = d3.scale.linear();
+            scaleRectWidth.domain([0, 500]);
+            scaleRectWidth.range([minX, maxX]);
 
-            var scaleWidth = d3.scale.linear();
-            scaleWidth.domain([0, 500]);
-            scaleWidth.range([minX, maxX]);
+            var scaleRectHeight = d3.scale.linear();
+            scaleRectHeight.domain([0, 6500]);
+            scaleRectHeight.range([minY, maxY]);
 
-            var scaleHeight = d3.scale.linear();
-            scaleHeight.domain([0, 6500]);
-            scaleHeight.range([minY, maxY]);
-
-            var svgContainer;
-            var crimeData;
+            var svgContainer2;
+            var crimeData2;
             var district = 'NORTHERN';
 
 
             function update() {
-              if (svgContainer != null) { svgContainer.remove(); }
+              if (svgContainer2 != null) { svgContainer2.remove(); }
               
               if (district == 'NORTHERN') {
                 district = 'SOUTHERN';
-                crimeData = crimeSouthern;
+                crimeData2 = crimeSouthern;
               }
               else {
                 district = 'NORTHERN';
-                crimeData = crimeNorthern;
+                crimeData2 = crimeNorthern;
               }
 
-              svgContainer = d3.select("body")
+              svgContainer2 = d3.select("body")
                                        .append("div")
                                        .append("svg")
                                        .attr("width", w)
                                        .attr("height", h)
-                                       .on('click', function(d,i) { update();  });
+                                       .on('click', function(d,i) { update2();  });
 
-              var rectangles = svgContainer.selectAll("rect")
-                            .data(crimeData)
+              var rectangles = svgContainer2.selectAll("rect")
+                            .data(crimeData2)
                             .enter()
                             .append("rect");
 
               var rectangleAttributes = rectangles
                 .attr("width", function(d) { return rectWidth; })
-                .attr("height", function (d, i) { return scaleHeight(crimeData[i]); })
+                .attr("height", function (d, i) { return scaleRectHeight(crimeData2[i]); })
                 .attr("x", function (d, i) { return w/24 * i * 0.5 + maxR; })
-                .attr("y", function (d, i) { return h - scaleHeight(crimeData[i]) - maxR; })
+                .attr("y", function (d, i) { return h - scaleRectHeight(crimeData2[i]) - maxR; })
                 .style("fill", function(d) { return "blue"; });
 
               var xBorder = svgContainer.append("line")
@@ -275,7 +268,7 @@
 
             }
  
-            update();
+            update2();
 
           });
         </script>
