@@ -272,6 +272,14 @@
                 .attr("x", function(d) { return minX; })
                 .attr("y", function(d) { return minY; });
 
+              var xLabel = svgContainer2.append("text")
+                .style("font-size","34px")
+                .style("font-weight", "bold")
+                .attr("dy", ".47em") 
+                .text(function(d) { return "Time of Day" })
+                .attr("x", function(d) { return maxX/2; })
+                .attr("y", function(d) { return maxY; });
+
             }
  
             update2();
