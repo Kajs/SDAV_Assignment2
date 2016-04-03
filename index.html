@@ -118,7 +118,9 @@
                 crimeData = crimeCounts2015;
               }
 
-              svgContainer = d3.select("body").append("svg")
+              svgContainer = d3.select("body")
+                                       .append("div")
+                                       .append("svg")
                                        .attr("width", w)
                                        .attr("height", h)
                                        .on('click', function(d,i) { update();  });
