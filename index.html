@@ -84,9 +84,9 @@
             var minR = 1;
             var maxR = 50;
             var minX = maxR;
-            var maxX = w;
+            var maxX = w - maxR;
             var minY = maxR;
-            var maxY = h;
+            var maxY = h - maxR;
 
             var scaleRadius = d3.scale.linear();
             scaleRadius.domain([0, 4000]);
