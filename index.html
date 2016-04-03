@@ -197,7 +197,6 @@
             data.forEach(function(d) {
               var hours = +d.Time.substring(0, 2);
               var minutes = +d.Time.substring(3, 5);
-              }
               if (d.PdDistrict == 'NORTHERN') { crimeNorthern[hours] = crimeNorthern[hours] + 1; }
               if (d.PdDistrict == 'SOUTHERN') { crimeSouthern[hours] = crimeSouthern[hours] + 1; }
             });
