@@ -244,11 +244,6 @@
                 crimeData = crimeNorthern;
               }
 
-
-              for (i = 0; i < 23; i++) {
-                console.log(crimeData[i] + 1);
-              }
-
               svgContainer = d3.select("body")
                                        .append("div")
                                        .append("svg")
@@ -263,7 +258,7 @@
 
               var rectangleAttributes = rectangles
                 .attr("width", function(d) { return rectWidth; })
-                .attr("height", function (d, i) { console.log("length"); console.log(crimeData.length); console.log(i); return 100; })
+                .attr("height", function (d, i) { console.log(crimeData[i]); return 100; })
                 .attr("x", function (d, i) { return w/24 * i; })
                 .attr("y", function (d) { return maxY; })
                 .style("fill", function(d) { return "blue"; });
