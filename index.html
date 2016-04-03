@@ -89,15 +89,15 @@
             var maxY = h;
 
             var scaleRadius = d3.scale.linear();
-            scaleRadius.domain([0, 1000]);
+            scaleRadius.domain([0, 4000]);
             scaleRadius.range([minR, maxR]);
 
             var scaleWidth = d3.scale.linear();
-            scaleWidth.domain([0, 1000]);
+            scaleWidth.domain([0, 500]);
             scaleWidth.range([minX, maxX]);
 
             var scaleHeight = d3.scale.linear();
-            scaleHeight.domain([0, 1000]);
+            scaleHeight.domain([0, 1400]);
             scaleHeight.range([minY, maxY]);
  
             var svgContainer = d3.select("body").append("svg")
