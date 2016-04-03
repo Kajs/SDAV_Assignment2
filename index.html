@@ -280,6 +280,14 @@
                 .attr("x", function(d) { return maxX/2; })
                 .attr("y", function(d) { return h - 35; });
 
+              var yLabel = svgContainer2.append("text")
+                .style("font-size","20px")
+                .style("font-weight", "bold")
+                .attr("dy", ".47em") 
+                .text(function(d) { return "Number of Crimes (all types)" })
+                .attr("x", function(d) { return minX; })
+                .attr("y", function(d) { return h/2; });
+
             }
  
             update2();
