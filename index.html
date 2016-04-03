@@ -77,12 +77,43 @@
             console.log("2015:");
             for (i = 0; i < crimeCounts2015.length; i++) { console.log(crimeCounts2015[i]); }
             console.log("\n");
-
-            var scale = d3.scale.linear();
-            scale.domain([0, 2000]);
-            scale.range([0, 500]);
-            console.log(scale(200));
           });
+
+          var w = 500;
+          var h = 100;
+          var maxR = 50;
+
+          var scaleRadius = d3.scale.linear();
+          scale.domain([0, 2000]);
+          scale.range([0, maxR]);
+
+          var scaleWidth = d3.scale.linear();
+          scale.domain([0, 2000]);
+          scale.range([0, w]);
+
+          var scaleHeight = d3.scale.linear();
+          scale.domain([0, 2000]);
+          scale.range([0, h]);
+
+
+          var svg = d3.select("body").append(.png");
+          svg.attr("width", w)
+             .attr("height", h);
+
+          var circles = svg.selectAll("circle")
+            .data(crimeCounts2013)
+            .enter()
+            .append("circle");
+
+          circles.attr("cx", function(d, i) {
+              return scaleWidth( crimeCounts2013[i][1] );
+            })
+            .attr("cy", function(d, i)) {
+              return scaleHeight( crimeCounts2013[i][2] );
+            })
+            .attr("r", function(d, i) {
+              return scaleRadius( crimeCounts2013[i][1] + crimeCounts[i][2] );
+            });
         </script>
     </section>
 
