@@ -284,10 +284,10 @@
                 .style("font-size","20px")
                 .style("font-weight", "bold")
                 .attr("dy", ".47em") 
-                .attr("transform", "rotate(-90)" )
+                .attr("transform", "rotate(-65)" )
                 .text(function(d) { return "Number of Crimes (all types)" })
-                .attr("x", function(d) { return 50; })
-                .attr("y", function(d) { return 50; });
+                .attr("x", function(d) { return minX; })
+                .attr("y", function(d) { return h/2; });
 
             }
  
