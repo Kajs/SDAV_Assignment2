@@ -111,7 +111,7 @@
                           .append("circle");
 
           var circleAttributes = circles
-            .attr("cx", function (d) { return scaleWidth(d.Prostitution); })
+            .attr("cx", function (d) { console.log(scaleWidth(d.Prostitution)); return scaleWidth(d.Prostitution); })
             .attr("cy", function (d) { return scaleHeight(d.VehicleTheft); })
             .attr("r", function (d) { return scaleRadius(d.Prostitution + d.VehicleTheft); })
             .style("fill", function(d) { return "black"; });
