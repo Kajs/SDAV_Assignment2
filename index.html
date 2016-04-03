@@ -71,8 +71,12 @@
               }
             });
 
-            for (i = 0; i < crimeCounts2013.length; i++) { console.log("2013:"); console.log(crimeCounts2013[i]); console.log("\n");}
-            for (i = 0; i < crimeCounts2015.length; i++) { console.log("2015:"); console.log(crimeCounts2015[i]); console.log("\n");}
+            console.log("2013:");
+            for (i = 0; i < crimeCounts2013.length; i++) { console.log(crimeCounts2013[i]);}
+            console.log("\n");
+            console.log("2015:");
+            for (i = 0; i < crimeCounts2015.length; i++) { console.log(crimeCounts2015[i]); }
+            console.log("\n");
 
             var scale = d3.scale.linear();
             scale.domain([0, 2000]);
