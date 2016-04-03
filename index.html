@@ -84,16 +84,16 @@
             var maxR = 50;
 
             var scaleRadius = d3.scale.linear();
-            scaleRadius.domain([0, 2000]);
+            scaleRadius.domain([1, 2000]);
             scaleRadius.range([0, maxR]);
 
             var scaleWidth = d3.scale.linear();
             scaleWidth.domain([0, 2000]);
-            scaleWidth.range([0, w]);
+            scaleWidth.range([maxR, w]);
 
             var scaleHeight = d3.scale.linear();
             scaleHeight.domain([0, 2000]);
-            scaleHeight.range([0, h]);
+            scaleHeight.range([maxR, h]);
  
             var svgContainer = d3.select("body").append("svg")
                                        .attr("width", w)
