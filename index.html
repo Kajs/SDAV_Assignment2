@@ -102,6 +102,10 @@
             var svgContainer;
             var crimeData;
             var year = 2015;
+            function cheapSolutionUpdate() {
+              update();
+              update2();
+            }
 
 
             function update() {
@@ -121,7 +125,7 @@
                                        .append("svg")
                                        .attr("width", w)
                                        .attr("height", h)
-                                       .on('click', function(d,i) { update();  });
+                                       .on('click', function(d,i) { cheapSolutionUpdate();  });
 
               var circles = svgContainer.selectAll("circle")
                             .data(crimeData)
@@ -251,7 +255,7 @@
                                        .append("svg")
                                        .attr("width", w)
                                        .attr("height", h)
-                                       .on('click', function(d,i) { update2();  });
+                                       .on('click', function(d,i) { cheapSolutionUpdate();  });
 
               var rectangles = svgContainer2.selectAll("rect")
                             .data(crimeData2)
