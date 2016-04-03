@@ -187,38 +187,24 @@
           var dataset; //Declare global var
           var crimeNorthern = [];
           var crimeSouthern = [];
+          for (i = 0; i < 23; i++) {
+            crimeNorthern.push(0);
+            crimeSouthern.push(0);
+          }
 
           d3.csv("sfpd_time.csv", function(data) {
 
             data.forEach(function(d) {
-              var found = false;
-              var zeroOne = 0;
-              var oneTwo = 0;
-              var twoThree = 0;
-              var threeFour = 0;
-              var fourFive = 0;
-              var fiveSix = 0;
-              var sixSeven = 0;
-              var sevenEight = 0;
-              var eightNine = 0;
-              var nineTen = 0;
-              var tenEleven = 0;
-              var elevenTwelve = 0;
-              var twelveThirteen = 0;
-              var thirteenFourteen = 0;
-              var fourteenFifteen = 0;
-              var fifteenSixteen = 0;
-              var sixteenSeventeen = 0;
-              var seventeenEighteen = 0;
-              var eighteenNineteen = 0;
-              var nineteenTwenty = 0;
-              var twentyTwentyone = 0;
-              var twentyoneTwentytwo = 0;
-              var twentytwoTwentythree = 0;
-              var twentythreeTwentyfour = 0;
-
-              console.log(d.Time.substring(0, 2) + ", " + d.Time.substring(2, 4));
+              var hours = +d.Time.substring(0, 2);
+              var minutes = +d.Time.substring(3, 5);
+              if (minutes == 0) { hours = hours + 1; }
+              if (d.PdDistrict == 'NORTHERN') { crimeNorthern[hours] = crimeNorthern[hours] + 1; }
+              if (d.PdDistrict == 'SOUTHERN') { crimeSouthern[hours] = crimeSouthern[hours] + 1; }
             });
+
+            for (i = 0; i < 23; i++) {
+              console.log(crimeNorthern[i]);
+            }
           });
         </script>
       </div>
