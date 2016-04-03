@@ -202,10 +202,6 @@
               if (d.PdDistrict == 'SOUTHERN') { crimeSouthern[hours] = crimeSouthern[hours] + 1; }
             });
 
-            for (i = 0; i < 23; i++) {
-              console.log(crimeSouthern[i]);
-            }
-
             var w = 1200;
             var h = 700;
             var minR = 1;
@@ -245,6 +241,11 @@
                 crimeData = crimeNorthern;
               }
 
+
+              for (i = 0; i < 23; i++) {
+                console.log(crimeData[i]);
+              }
+
               svgContainer = d3.select("body")
                                        .append("div")
                                        .append("svg")
@@ -259,7 +260,7 @@
 
               var rectangleAttributes = rectangles
                 .attr("width", function(d) { return rectWidth; })
-                .attr("height", function (d, i) { return scaleHeight(crimeData[i]); })
+                .attr("height", function (d, i) { return crimeData[i]; })
                 .attr("x", function (d, i) { return w/24 * i; })
                 .attr("y", function (d) { return maxY; })
                 .style("fill", function(d) { return "blue"; });
