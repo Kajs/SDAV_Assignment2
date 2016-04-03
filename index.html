@@ -168,6 +168,23 @@
                 .attr("x", function(d) { return minX; })
                 .attr("y", function(d) { return minY*2; });
             }
+
+              var xLabel = svgContainer2.append("text")
+                .style("font-size","20px")
+                .style("font-weight", "bold")
+                .attr("dy", ".47em") 
+                .text(function(d) { return "Time of Day" })
+                .attr("x", function(d) { return maxX/2; })
+                .attr("y", function(d) { return h - 35; });
+
+              var yLabel = svgContainer2.append("text")
+                .style("font-size","20px")
+                .style("font-weight", "bold")
+                .attr("dy", ".47em") 
+                .attr("transform", "rotate(-90)" )
+                .text(function(d) { return "Number of Crimes (all types)" })
+                .attr("x", function(d) { return -500; })
+                .attr("y", function(d) { return 30; });
  
             update();
 
@@ -264,7 +281,7 @@
                 .attr("stroke-width", 2)
                 .attr("stroke", "black");
 
-              var headline = svgContainer2.append("text")
+              var headline2 = svgContainer2.append("text")
                 .style("font-size","34px")
                 .style("font-weight", "bold")
                 .attr("dy", ".47em") 
@@ -272,7 +289,7 @@
                 .attr("x", function(d) { return minX; })
                 .attr("y", function(d) { return minY; });
 
-              var xLabel = svgContainer2.append("text")
+              var xLabel2 = svgContainer2.append("text")
                 .style("font-size","20px")
                 .style("font-weight", "bold")
                 .attr("dy", ".47em") 
@@ -280,7 +297,7 @@
                 .attr("x", function(d) { return maxX/2; })
                 .attr("y", function(d) { return h - 35; });
 
-              var yLabel = svgContainer2.append("text")
+              var yLabel2 = svgContainer2.append("text")
                 .style("font-size","20px")
                 .style("font-weight", "bold")
                 .attr("dy", ".47em") 
