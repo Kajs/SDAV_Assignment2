@@ -258,8 +258,8 @@
                             .append("rect");
 
               var rectangleAttributes = rectangles
-                .attr("width") { return rectWidth; }
-                .attr("height", function (d, i)) { return scaleHeight(crimeData[i]); }
+                .attr("width", function(d) { return rectWidth; })
+                .attr("height", function (d, i) { return scaleHeight(crimeData[i]); })
                 .attr("x", function (d, i) { return w/24 * i; })
                 .attr("y", function (d) { return maxY; })
                 .style("fill", function(d) { return "blue"; });
