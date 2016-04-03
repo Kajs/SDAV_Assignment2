@@ -83,9 +83,9 @@
             var h = 500;
             var minR = 1;
             var maxR = 50;
-            var minX = maxR + 10;
+            var minX = maxR;
             var maxX = w;
-            var minY = maxR + 10;
+            var minY = maxR;
             var maxY = h;
 
             var scaleRadius = d3.scale.linear();
@@ -116,11 +116,19 @@
             .style("fill", function(d) { return "black"; });
             console.log(crimeCounts2013.length);
 
-            var line = svgContainer.append("line")
+            var xBorder = svgContainer.append("line")
               .attr("x1", minX)
               .attr("y1", maxY)
               .attr("x2", maxX)
               .attr("y2", maxY)
+              .attr("stroke-width", 2)
+              .attr("stroke", "black");
+
+            var yBorder = svgContainer.append("line")
+              .attr("x1", minX)
+              .attr("y1", maxY)
+              .attr("x2", minX)
+              .attr("y2", minY)
               .attr("stroke-width", 2)
               .attr("stroke", "black");
           });
