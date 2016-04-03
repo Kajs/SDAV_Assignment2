@@ -165,8 +165,8 @@
                 .style("font-weight", "bold")
                 .attr("dy", ".47em") 
                 .text(function(d) { return 'Year ' + year })
-                .attr("x", function(d) { return minX; })
-                .attr("y", function(d) { return maxY/3; });
+                .attr("x", function(d) { return maxX/3; })
+                .attr("y", function(d) { return minY; });
 
               var xLabel = svgContainer.append("text")
                 .style("font-size","20px")
