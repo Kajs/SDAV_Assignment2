@@ -33,33 +33,46 @@
       <h2>Assignment 2B: One scatter plot and two datasets</h2>
         <script type="text/javascript">
           var dataset; //Declare global var
-          var year = "2015";
-          var crimeCounts = [];
+          var crimeCounts2013 = [];
+          var crimeCounts2015 = [];
 
           d3.csv("sfpd_cropped.csv", function(data) {
             dataset = data;
 
             data.forEach(function(d) {
-              if (d.Date == year) {
-                var found = false;
-                var prostitution = 0;
-                if(d.Category == "PROSTITUTION") { prostitution = 1; }
-                var vehicleTheft = 0;
-                if (d.Category == "VEHICLE THEFT") { vehicleTheft = 1; }
+              var found = false;
+              var prostitution = 0;
+              if(d.Category == "PROSTITUTION") { prostitution = 1; }
+              var vehicleTheft = 0;
+              if (d.Category == "VEHICLE THEFT") { vehicleTheft = 1; }
               
-                for (i = 0; i < crimeCounts.length; i++) { 
-                  var arr = crimeCounts[i];
+              if (d.Date == 2013) {
+                for (i = 0; i < crimeCounts2013.length; i++) { 
+                  var arr = crimeCounts2013[i];
                   if (d.PdDistrict == arr[0]) {
-                    crimeCounts[i] = [arr[0], +arr[1] + prostitution, +[arr[2] + vehicleTheft]];
+                    crimeCounts2013[i] = [arr[0], +arr[1] + prostitution, +[arr[2] + vehicleTheft]];
                     found = true;
                     break;
                   }
                 }
-                if (found == false) { crimeCounts.push( [d.PdDistrict, prostitution, vehicleTheft] ); }
+                if (found == false) { crimeCounts2013.push( [d.PdDistrict, prostitution, vehicleTheft] ); }
+              }
+
+              if (d.Date == 2015) {
+                for (i = 0; i < crimeCounts2015.length; i++) { 
+                  var arr = crimeCounts2015[i];
+                  if (d.PdDistrict == arr[0]) {
+                    crimeCounts2015[i] = [arr[0], +arr[1] + prostitution, +[arr[2] + vehicleTheft]];
+                    found = true;
+                    break;
+                  }
+                }
+                if (found == false) { crimeCounts2015.push( [d.PdDistrict, prostitution, vehicleTheft] ); }
               }
             });
 
-            for (i = 0; i < crimeCounts.length; i++) { console.log(crimeCounts[i]); }
+            for (i = 0; i < crimeCounts2013.length; i++) { console.log(crimeCounts2013[i]); }
+            for (i = 0; i < crimeCounts2015.length; i++) { console.log(crimeCounts2015[i]); }
 
             var scale = d3.scale.linear();
             scale.domain([0, 2000]);
