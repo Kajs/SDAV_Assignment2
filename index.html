@@ -250,7 +250,7 @@
 
               var rectangleAttributes = rectangles
                 .attr("width", function(d) { return rectWidth; })
-                .attr("height", function (d, i) { console.log(scaleHeight(crimeData[i])); return scaleHeight(crimeData[i]); })
+                .attr("height", function (d, i) { console.log(scaleHeight(crimeData[i])); return -scaleHeight(crimeData[i]); })
                 .attr("x", function (d, i) { return w/24 * i * 0.5; })
                 .attr("y", function (d) { return 100; })
                 .style("fill", function(d) { return "blue"; });
